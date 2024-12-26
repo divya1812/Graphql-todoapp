@@ -1,0 +1,44 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@apollo/server": "^4.11.2",
+    "@graphql-tools/import": "^7.0.8",
+    "@graphql-tools/schema": "^10.0.13",
+    "@types/node": "^22.10.2",
+    "apollo-server": "^3.13.0",
+    "apollo-server-express": "^3.13.0",
+    "apollo-server-lambda": "^3.13.0",
+    "aws-sdk": "^2.1692.0",
+    "dotenv": "^16.4.7",
+    "dotenv-webpack": "^8.1.0",
+    "graphql": "^16.10.0",
+    "graphql-subscriptions": "^3.0.0",
+    "graphql-ws": "^5.16.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.3",
+    "@graphql-codegen/typescript": "^4.1.2",
+    "@graphql-codegen/typescript-resolvers": "^4.4.1",
+    "@types/aws-lambda": "^8.10.146",
+    "@types/express": "^5.0.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "graphql-loader": "^1.2.1",
+    "serverless": "^4.4.18",
+    "serverless-webpack": "^5.15.0",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-node-externals": "^3.0.0"
+  }
+}

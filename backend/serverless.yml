@@ -1,0 +1,47 @@
+service: graphql-todo-app
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  deploymentBucket:
+    name: ridhambuckett
+
+
+
+  iamRoleStatements:
+  - Effect: "Allow"
+    Action:
+      - "dynamodb:Scan"
+      - "dynamodb:Query"
+      - "dynamodb:GetItem"
+      - "dynamodb:PutItem"
+      - "dynamodb:UpdateItem"
+    Resource: arn:aws:dynamodb:us-east-1:418295713290:table/Todos
+
+functions:
+  graphql:
+    handler: dist/app.graphqlHandler  # Use the compiled handler in the dist folder
+
+
+    events:
+      - http:
+          path: graphql
+          method: post
+      - http:
+          path: graphql
+          method: get
+    package:
+      include:
+        - dist/**/*.js                 # Include all compiled JS files from dist
+        - dist/schema/schema.graphql   # Include the schema file
+        - node_modules/**              # Include all dependencies from node_modules (Optional, see below)
+    
+
+
+package:
+  individually: true               # If you want to package each function separately
+  include:
+    - dist/**/*.js                  # Include compiled JS files
+    - dist/schema/schema.graphql    # Include schema
+    - node_modules/**               # Ensure node_modules is included automatically
